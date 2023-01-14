@@ -1,0 +1,50 @@
+.type-link__item {
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px 3px rgba(20, 36, 51, 0.6);
+}
+
+.type-link__item_visited {
+  box-shadow: 2px 2px 4px 3px rgba(8, 29, 45, 0.9);
+}
+
+.type-link__link {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.type-link__image {
+  aspect-ratio: 1/1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.type-link__shirt-image {
+  background-image: url('../images/shirt-image.png');
+}
+
+.type-link__pants-image {
+  background-image: url('../images/pants-image.png');
+}
+
+.type-link__shoes-image {
+  background-image: url('../images/shoes-image.png');
+}
+
+.type-link__title {
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #142433;
+  font-weight: 600;
+}
+
+.type-link__item:active {
+  transform: scale(1.08, 1.08);
+}

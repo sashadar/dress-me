@@ -1,8 +1,12 @@
+import TypeLink from '../components/TypeLink';
+
 import './Home.css';
 
 import shirtSmallIconSource from '../images/icons/shirt-icon-small.png';
 import pantsSmallIconSource from '../images/icons/pants-icon-small.png';
 import shoesSmallIconSource from '../images/icons/shoes-icon-small.png';
+
+import { typeLinkListData } from '../utils/constants';
 
 const Home = () => {
   return (
@@ -38,6 +42,15 @@ const Home = () => {
           </li>
         </ul>
       </div>
+      <ul className='home__type-link-list'>
+        {typeLinkListData.map((link, index) => (
+          <TypeLink
+            imgClass={link.class}
+            title={link.title}
+            key={index}
+          ></TypeLink>
+        ))}
+      </ul>
     </section>
   );
 };
