@@ -17,10 +17,15 @@
   text-decoration: none;
 }
 
+.type-link__link_disabled {
+  background-color: rgba(20, 36, 51, 0.5);
+  pointer-events: none;
+}
+
 .type-link__image {
   aspect-ratio: 1/1;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   width: 100%;
 }
