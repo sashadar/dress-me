@@ -1,14 +1,3 @@
-.type-link__item {
-  border: 1px solid black;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 2px 2px 4px 3px rgba(20, 36, 51, 0.6);
-}
-
-.type-link__item_visited {
-  box-shadow: 2px 2px 4px 3px rgba(8, 29, 45, 0.9);
-}
-
 .type-link__link {
   margin: 5px;
   display: flex;
