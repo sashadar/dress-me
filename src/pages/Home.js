@@ -1,4 +1,5 @@
 import TypeLink from '../components/TypeLink';
+import CardList from '../components/CardList';
 
 import './Home.css';
 
@@ -42,7 +43,7 @@ const Home = () => {
           </li>
         </ul>
       </div>
-      <ul className='home__type-link-list'>
+      <CardList>
         {typeLinkListData.map((link, index) => (
           <TypeLink
             imgClass={link.class}
@@ -50,7 +51,7 @@ const Home = () => {
             key={index}
           ></TypeLink>
         ))}
-      </ul>
+      </CardList>
     </section>
   );
 };
