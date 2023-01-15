@@ -28,29 +28,28 @@ const Items = () => {
           <li className='items-filter__group-item'>
             <span className='items-filter__group-name'>Color</span>
             <ul className='items-filter__group items-filter__group_borderless'>
-              <li className='items-filter__item'>
-                Green
-                <input type='checkbox' />
-              </li>
-
-              <li className='items-filter__item'>
-                Red
-                <input type='checkbox' />
-              </li>
+              {Array.from(new Set(allItemsTemp.map((item) => item.color)))
+                .sort()
+                .map((color) => (
+                  <li className='items-filter__item' key={Math.random()}>
+                    {color}
+                    <input type='checkbox' />
+                  </li>
+                ))}
             </ul>
           </li>
           <li className='items-filter__group-item'>
             <span className='items-filter__group-name'>Size</span>
             <ul className='items-filter__group items-filter__group_borderless'>
-              <li className='items-filter__item'>
-                XXL
-                <input type='checkbox' />
-              </li>
+              {Array.from(new Set(allItemsTemp.map((item) => item.size)))
+                .sort()
+                .map((size) => (
+                  <li className='items-filter__item' key={Math.random()}>
+                    {size}
 
-              <li className='items-filter__item'>
-                S
-                <input type='checkbox' />
-              </li>
+                    <input type='checkbox' />
+                  </li>
+                ))}
             </ul>
           </li>
         </ul>
