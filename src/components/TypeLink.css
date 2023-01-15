@@ -11,26 +11,6 @@
   pointer-events: none;
 }
 
-.type-link__image {
-  aspect-ratio: 1/1;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 100%;
-}
-
-.type-link__shirt-image {
-  background-image: url('../images/shirt-image.png');
-}
-
-.type-link__pants-image {
-  background-image: url('../images/pants-image.png');
-}
-
-.type-link__shoes-image {
-  background-image: url('../images/shoes-image.png');
-}
-
 .type-link__title {
   margin: 0;
   text-align: center;

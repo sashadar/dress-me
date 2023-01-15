@@ -1,4 +1,5 @@
 import Card from './Card';
+import CardImage from './CardImage';
 
 import './TypeLink.css';
 
@@ -6,7 +7,7 @@ const TypeLink = (props) => {
   return (
     <Card>
       <a href='./items' className='type-link__link'>
-        <div className={`type-link__image ${props.imgClass}`}></div>
+        <CardImage className={props.imgClass}></CardImage>
         <p className='type-link__title'>{props.title}</p>
       </a>
     </Card>

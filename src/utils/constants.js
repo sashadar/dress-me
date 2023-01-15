@@ -1,14 +1,14 @@
 export const typeLinkListData = [
   {
     title: 'Shirts',
-    class: 'type-link__shirt-image',
+    class: 'card-image__shirt',
   },
   {
     title: 'Pants',
-    class: 'type-link__pants-image',
+    class: 'card-image__pants',
   },
   {
     title: 'Shoes',
-    class: 'type-link__shoes-image',
+    class: 'card-image__shoes',
   },
 ];

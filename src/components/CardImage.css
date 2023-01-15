@@ -1,0 +1,19 @@
+.card-image {
+  aspect-ratio: 1/1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+}
+
+.card-image__shirt {
+  background-image: url('../images/shirt-image.png');
+}
+
+.card-image__pants {
+  background-image: url('../images/pants-image.png');
+}
+
+.card-image__shoes {
+  background-image: url('../images/shoes-image.png');
+}
