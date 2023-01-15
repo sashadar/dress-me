@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Home from './pages/Home';
+import Items from './pages/Items';
 
 import './App.css';
 
@@ -8,7 +9,8 @@ function App() {
     <div className='app'>
       <Header />
       <main>
-        <Home />
+        {/* <Home /> */}
+        <Items />
       </main>
     </div>
   );

@@ -1,0 +1,34 @@
+.item-card__wrapper {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-card__brand {
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #142433;
+  font-weight: 400;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.item-card__color {
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #142433;
+  font-weight: 400;
+  font-size: 0.7rem;
+}
+
+.item-card__size {
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #142433;
+  font-weight: 400;
+  font-size: 0.7rem;
+}

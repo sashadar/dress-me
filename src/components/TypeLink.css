@@ -18,7 +18,3 @@
   color: #142433;
   font-weight: 600;
 }
-
-.type-link__item:active {
-  transform: scale(1.08, 1.08);
-}

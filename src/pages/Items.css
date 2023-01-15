@@ -1,0 +1,78 @@
+.items {
+  padding: 0.5rem 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.items-filter {
+  display: inline-block;
+  align-self: flex-end;
+  position: absolute;
+}
+
+.items-filter__menu-button {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2rem 1.6rem 0.2rem 2.7rem;
+  border: 1px solid #ccc;
+  z-index: 0;
+}
+
+.items-filter__menu-button:before {
+  content: '';
+  position: absolute;
+  left: 1.2rem;
+  height: 1rem;
+  width: 1rem;
+  background-image: url('../images/icons/button-filter-menu-icon.png');
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.items-filter__group {
+  padding: 0.4rem 0.4rem;
+  display: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  transition: 0.5s;
+  list-style: none;
+  z-index: 2;
+  background-color: white;
+  box-shadow: 2px 3px 3px 1px rgba(20, 36, 51, 0.6);
+}
+
+.items-filter__group_borderless {
+  border: none;
+  box-shadow: none;
+}
+
+.items-filter__group_visible {
+}
+
+.items-filter__group-item {
+  display: inline-block;
+}
+
+.items-filter__group-name {
+  display: block;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.items-filter__item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6rem;
+}
+
+.items-filter.visible .items-filter__menu-button {
+  color: #cf192b;
+}
+
+.items-filter.visible .items-filter__group {
+  display: flex;
+  flex-direction: column;
+}

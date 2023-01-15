@@ -4,6 +4,9 @@
   background-size: contain;
   background-position: center;
   width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #ddecfa;
 }
 
 .card-image__shirt {
