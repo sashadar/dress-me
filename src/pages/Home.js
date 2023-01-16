@@ -23,10 +23,10 @@ const Home = () => {
     itemsCount[element.type] += 1;
   });
 
+  console.log('savedSets:');
   console.log(savedSets);
   const savedSetsCount = savedSets.length;
   console.log(savedSetsCount);
-
   console.log(itemsCount);
 
   return (
@@ -65,6 +65,7 @@ const Home = () => {
       <CardList>
         {typeLinkListData.map((link, index) => (
           <TypeLink
+            type={link.type}
             imgClass={link.class}
             title={link.title}
             key={index}

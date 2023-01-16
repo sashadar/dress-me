@@ -9,8 +9,6 @@ import ItemCard from '../components/ItemCard';
 const Items = () => {
   const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
 
-  const tempItemTypeValue = 'shoes';
-
   const handleFilterMenuClick = () => {
     setIsFilterMenuVisible((prevValue) => !prevValue);
   };

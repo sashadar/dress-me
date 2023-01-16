@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   text-decoration: none;
+  z-index: 3;
 }
 
 .type-link__link_disabled {

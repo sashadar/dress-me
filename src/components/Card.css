@@ -8,3 +8,8 @@
 .card:active {
   transform: scale(1.04, 1.04);
 }
+
+.card_disabled {
+  pointer-events: none;
+  background-color: rgba(20, 36, 51, 0.5);
+}
