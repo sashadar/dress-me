@@ -1,13 +1,16 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { currentSetActions } from '../store/currentSet';
 
 import './Items.css';
 
 import CardList from '../components/CardList';
-import { allItemsTemp } from '../utils/constants';
 import ItemCard from '../components/ItemCard';
 
 const Items = () => {
   const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
+  const currentSet = useSelector((state) => state.currentSet);
+  const allItems = useSelector((state) => state.allItems);
 
   const handleFilterMenuClick = () => {
     setIsFilterMenuVisible((prevValue) => !prevValue);
@@ -26,7 +29,7 @@ const Items = () => {
           <li className='items-filter__group-item'>
             <span className='items-filter__group-name'>Color</span>
             <ul className='items-filter__group items-filter__group_borderless'>
-              {Array.from(new Set(allItemsTemp.map((item) => item.color)))
+              {Array.from(new Set(allItems.map((item) => item.color)))
                 .sort()
                 .map((color) => (
                   <li className='items-filter__item' key={Math.random()}>
@@ -39,7 +42,7 @@ const Items = () => {
           <li className='items-filter__group-item'>
             <span className='items-filter__group-name'>Size</span>
             <ul className='items-filter__group items-filter__group_borderless'>
-              {Array.from(new Set(allItemsTemp.map((item) => item.size)))
+              {Array.from(new Set(allItems.map((item) => item.size)))
                 .sort()
                 .map((size) => (
                   <li className='items-filter__item' key={Math.random()}>
@@ -53,7 +56,7 @@ const Items = () => {
         </ul>
       </div>
       <CardList>
-        {allItemsTemp.map((item) => (
+        {allItems.map((item) => (
           <ItemCard
             type={item.type}
             brand={item.brand}
