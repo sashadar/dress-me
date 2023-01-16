@@ -62,7 +62,7 @@
   height: 100vh;
   background-color: rgba(13, 25, 36, 0.98);
   transition: 0.5s;
-  /* display: none; */
+  z-index: 3;
 }
 
 .header__navigation-menu_visible {
