@@ -39,7 +39,7 @@
   border-top: none;
   transition: 0.5s;
   list-style: none;
-  z-index: 2;
+  z-index: 3;
   background-color: white;
   box-shadow: 2px 3px 3px 1px rgba(20, 36, 51, 0.6);
 }

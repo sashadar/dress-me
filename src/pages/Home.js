@@ -65,6 +65,7 @@ const Home = () => {
       <CardList>
         {typeLinkListData.map((link, index) => (
           <TypeLink
+            totalCount={itemsCount[link.type]}
             type={link.type}
             imgClass={link.class}
             title={link.title}

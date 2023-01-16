@@ -15,7 +15,10 @@ const TypeLink = ({ type, ...props }) => {
     currentSet.shirt.type === type ||
     currentSet.pants.type === type ||
     currentSet.shoes.type === type ||
-    currentSet.currentType === type;
+    currentSet.currentType === type ||
+    props.totalCount === 0;
+
+  console.log(`props.totalCount(${type}): ${props.totalCount}`);
 
   const handleTypeLinkClick = () => {
     dispatch(currentSetActions.setCurrentType(type));
