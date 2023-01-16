@@ -11,6 +11,10 @@ const Items = () => {
   const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
   const currentSet = useSelector((state) => state.currentSet);
   const allItems = useSelector((state) => state.allItems);
+  const actualList = allItems.filter(
+    (item) => item.type === currentSet.currentType
+  );
+  console.log(actualList);
 
   const handleFilterMenuClick = () => {
     setIsFilterMenuVisible((prevValue) => !prevValue);
@@ -29,7 +33,7 @@ const Items = () => {
           <li className='items-filter__group-item'>
             <span className='items-filter__group-name'>Color</span>
             <ul className='items-filter__group items-filter__group_borderless'>
-              {Array.from(new Set(allItems.map((item) => item.color)))
+              {Array.from(new Set(actualList.map((item) => item.color)))
                 .sort()
                 .map((color) => (
                   <li className='items-filter__item' key={Math.random()}>
@@ -42,7 +46,7 @@ const Items = () => {
           <li className='items-filter__group-item'>
             <span className='items-filter__group-name'>Size</span>
             <ul className='items-filter__group items-filter__group_borderless'>
-              {Array.from(new Set(allItems.map((item) => item.size)))
+              {Array.from(new Set(actualList.map((item) => item.size)))
                 .sort()
                 .map((size) => (
                   <li className='items-filter__item' key={Math.random()}>
@@ -56,7 +60,7 @@ const Items = () => {
         </ul>
       </div>
       <CardList>
-        {allItems.map((item) => (
+        {actualList.map((item) => (
           <ItemCard
             type={item.type}
             brand={item.brand}
