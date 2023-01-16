@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { allItemsActions } from './store/allItems';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './components/Header';
@@ -10,14 +12,13 @@ import * as api from './utils/api';
 import './App.css';
 
 function App() {
-  const [allItems, setAllItems] = React.useState([]);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     api
       .getItems()
       .then((items) => {
-        setAllItems(items);
-        console.log(items[0]);
+        dispatch(allItemsActions.setItems(items));
       })
       .catch((err) => {
         console.log(`Error:    ${err}`);
@@ -32,7 +33,7 @@ function App() {
           <Route exact path='/'>
             <Redirect to='/home'></Redirect>
           </Route>
-          <Route path='/home'>
+          <Route path='/home/'>
             <Home />
           </Route>
           <Route path='/items'>
