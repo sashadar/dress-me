@@ -10,7 +10,7 @@
 }
 
 .header__title {
-  color: white;
+  color: rgb(255, 249, 66);
   text-decoration: none;
   font-size: 1.3rem;
   font-style: italic;
@@ -25,7 +25,7 @@
 }
 
 .header__page-title_left {
-  margin-right: 25%;
+  margin-right: 15%;
 }
 
 .header__menu-button {
@@ -48,6 +48,7 @@
 .header__menu-button_action_open {
   background-image: url('../images/icons/button-hamburger-menu-icon.svg');
   margin-right: 0;
+  margin-left: 1.5rem;
 }
 
 .header__navigation-menu {
