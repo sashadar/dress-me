@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -27,8 +28,17 @@ function App() {
     <div className='app'>
       <Header />
       <main>
-        {/* <Home /> */}
-        <Items />
+        <Switch>
+          <Route exact path='/'>
+            <Redirect to='/home'></Redirect>
+          </Route>
+          <Route path='/home'>
+            <Home />
+          </Route>
+          <Route path='/items'>
+            <Items />
+          </Route>
+        </Switch>
       </main>
     </div>
   );

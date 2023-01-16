@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import './Header.css';
 
 const Header = () => {
@@ -11,9 +13,9 @@ const Header = () => {
   };
   return (
     <header className='header'>
-      <a className='header__title' href='/'>
+      <NavLink className='header__title' to='/home'>
         DressMe
-      </a>
+      </NavLink>
       <h1
         className={`header__page-title ${
           isMenuOpen ? 'header__page-title_left' : ''
@@ -40,20 +42,20 @@ const Header = () => {
         <nav>
           <ul className='header__navigation-list'>
             <li className='header__navigation-list-item'>
-              <a className='header__navigation-link' href='/home'>
+              <NavLink className='header__navigation-link' to='/home'>
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className='header__navigation-list-item'>
-              <a className='header__navigation-link' href='/items'>
+              <NavLink className='header__navigation-link' to='/items'>
                 Items
-              </a>
+              </NavLink>
             </li>
 
             <li className='header__navigation-list-item'>
-              <a className='header__navigation-link' href='/saved-sets'>
+              <NavLink className='header__navigation-link' to='/saved-sets'>
                 Saved Sets
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>

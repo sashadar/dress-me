@@ -89,7 +89,9 @@
   color: #bccddc;
 }
 
-.header__navigation-link:hover {
+.header__navigation-link:hover,
+.header__navigation-link:active,
+.header__navigation-link.active {
   color: white;
   padding-bottom: 0.25rem;
   border-bottom: 2px solid white;
