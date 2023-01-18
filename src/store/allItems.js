@@ -7,16 +7,16 @@ const allItemsSlice = createSlice({
   initialState: initialAllItemsState,
   reducers: {
     setItems(state, action) {
-      /* state = action.payload;
-      action.payload.map((item) => {
-        return { ...item };
-      }); */
-      action.payload.forEach((element) => {
-        state.push(element);
-      });
+      return [...action.payload];
     },
     addItem(state, action) {
       state.push(action.payload);
+    },
+    removeItem(state, action) {
+      state.splice(
+        state.findIndex((item) => item.id === action.payload),
+        1
+      );
     },
   },
 });

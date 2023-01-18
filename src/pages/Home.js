@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
+import { savedSetsActions } from '../store/savedSets';
 import { useHistory } from 'react-router-dom';
 
 import TypeLink from '../components/TypeLink';
@@ -31,25 +32,39 @@ const Home = () => {
     currentSet.currentType === type ||
     itemsCount[type] === 0;
 
-  const setItemCounters = () => {
-    allItems.forEach((element) => {
-      itemsCount[element.type] += 1;
-    });
-
-    [currentSet.shirt, currentSet.pants, currentSet.shoes].forEach(
-      (element) => {
-        if (element.type) {
-          itemsCount[element.type] -= 1;
-        }
-      }
-    );
-  };
-
   React.useEffect(() => {
     dispatch(currentSetActions.setCurrentPage('Home'));
+    // eslint-disable-next-line
   }, []);
 
-  setItemCounters();
+  allItems.forEach((element) => {
+    itemsCount[element.type] += 1;
+  });
+
+  /*   [currentSet.shirt, currentSet.pants, currentSet.shoes].forEach((element) => {
+    if (element.type) {
+      itemsCount[element.type] -= 1;
+    }
+  }); */
+
+  /*   savedSets.forEach((set) => {
+    itemsCount.shirt--;
+    itemsCount.pants--;
+    itemsCount.shoes--;
+  }); */
+
+  React.useEffect(() => {
+    if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
+      const newSet = {
+        shirt: currentSet.shirt,
+        pants: currentSet.pants,
+        shoes: currentSet.shoes,
+        key: Math.random(),
+      };
+      dispatch(currentSetActions.reset());
+      dispatch(savedSetsActions.add(newSet));
+    }
+  }, [dispatch, currentSet.shoes, currentSet.pants, currentSet.shirt]);
 
   const handleTypeLinkClick = (type) => {
     dispatch(currentSetActions.setCurrentType(type));
@@ -72,7 +87,7 @@ const Home = () => {
     <section className='home'>
       <div className='home__summary'>
         <a className='home__sets-count' href='/saved-sets'>
-          {savedSetsCount} Saved Sets
+          Sets: {savedSetsCount}
         </a>
         <ul className='home__items-count-list'>
           <li className='home__item-count'>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
+import { allItemsActions } from '../store/allItems';
 
 import './Items.css';
 
@@ -15,6 +16,8 @@ const Items = () => {
   const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
   const currentSet = useSelector((state) => state.currentSet);
   const allItems = useSelector((state) => state.allItems);
+  //const savedSets = useSelector((state) => state.savedSets);
+  // const savedIds =
   const currentList = allItems
     .filter((item) => item.type === currentSet.currentType)
     .filter((item) => currentSet.filterStates[item.size])
@@ -29,6 +32,7 @@ const Items = () => {
 
   React.useEffect(() => {
     dispatch(currentSetActions.setCurrentPage('Items'));
+    // eslint-disable-next-line
   }, []);
 
   const handleFilterMenuClick = () => {
@@ -38,7 +42,7 @@ const Items = () => {
 
   const addItemToSet = (id, type) => {
     const item = currentList.find((item) => item.id === id);
-    console.log(item);
+
     if (type === 'shoes') {
       dispatch(currentSetActions.addShoes(item));
     } else if (type === 'pants') {
@@ -46,8 +50,7 @@ const Items = () => {
     } else if (type === 'shirt') {
       dispatch(currentSetActions.addShirt(item));
     }
-
-    dispatch(currentSetActions.resetCurrentType());
+    dispatch(allItemsActions.removeItem(item.id));
 
     history.push('/home');
   };
