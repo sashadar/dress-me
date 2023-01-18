@@ -19,11 +19,13 @@ const Home = () => {
   const savedSets = useSelector((state) => state.savedSets);
   const allItems = useSelector((state) => state.allItems);
   const currentSet = useSelector((state) => state.currentSet);
+  console.log(currentSet.shirt.type);
+  console.log(currentSet.shirt);
 
+  console.log(currentSet.pants.type == 'undefined');
   const itemsCount = { shirt: 0, pants: 0, shoes: 0 };
-  allItems.forEach((element) => {
-    itemsCount[element.type] += 1;
-  });
+
+  const savedSetsCount = savedSets.length;
 
   const isDisabled = (type) =>
     currentSet.shirt.type === type ||
@@ -32,11 +34,21 @@ const Home = () => {
     currentSet.currentType === type ||
     itemsCount[type] === 0;
 
-  console.log('savedSets:');
-  console.log(savedSets);
-  const savedSetsCount = savedSets.length;
-  console.log(savedSetsCount);
-  console.log(itemsCount);
+  const setItemCounters = () => {
+    allItems.forEach((element) => {
+      itemsCount[element.type] += 1;
+    });
+
+    [currentSet.shirt, currentSet.pants, currentSet.shoes].forEach(
+      (element) => {
+        if (element.type) {
+          itemsCount[element.type] -= 1;
+        }
+      }
+    );
+  };
+
+  setItemCounters();
 
   const handleTypeLinkClick = (type) => {
     dispatch(currentSetActions.setCurrentType(type));
