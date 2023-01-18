@@ -4,9 +4,12 @@ import CardImage from './CardImage';
 import './ItemCard.css';
 
 const ItemCard = (props) => {
+  const handleItemCardClick = () => {
+    props.handleItemCardClick(props.id, props.type);
+  };
   return (
     <Card>
-      <div className='item-card__wrapper'>
+      <div className='item-card__wrapper' onClick={handleItemCardClick}>
         <CardImage
           className={`card-image__${props.type}`}
           color={props.color}

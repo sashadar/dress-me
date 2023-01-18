@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { savedSetsActions } from '../store/savedSets';
 import { currentSetActions } from '../store/currentSet';
-import { allItemsActions } from '../store/allItems';
+import { useHistory } from 'react-router-dom';
 
 import TypeLink from '../components/TypeLink';
 import CardList from '../components/CardList';
@@ -16,18 +15,45 @@ import './Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const savedSets = useSelector((state) => state.savedSets);
   const allItems = useSelector((state) => state.allItems);
+  const currentSet = useSelector((state) => state.currentSet);
+
   const itemsCount = { shirt: 0, pants: 0, shoes: 0 };
   allItems.forEach((element) => {
     itemsCount[element.type] += 1;
   });
+
+  const isDisabled = (type) =>
+    currentSet.shirt.type === type ||
+    currentSet.pants.type === type ||
+    currentSet.shoes.type === type ||
+    currentSet.currentType === type ||
+    itemsCount[type] === 0;
 
   console.log('savedSets:');
   console.log(savedSets);
   const savedSetsCount = savedSets.length;
   console.log(savedSetsCount);
   console.log(itemsCount);
+
+  const handleTypeLinkClick = (type) => {
+    dispatch(currentSetActions.setCurrentType(type));
+    const currentList = allItems.filter((item) => item.type === type);
+    const sizeCheckboxes = Array.from(
+      new Set(currentList.map((item) => item.size))
+    ).sort();
+    const colorCheckboxes = Array.from(
+      new Set(currentList.map((item) => item.color))
+    ).sort();
+    dispatch(currentSetActions.setSizeCheckBoxes(sizeCheckboxes));
+    dispatch(currentSetActions.initializeFilters(sizeCheckboxes));
+    dispatch(currentSetActions.setColorCheckBoxes(colorCheckboxes));
+    dispatch(currentSetActions.initializeFilters(colorCheckboxes));
+
+    history.push('/items');
+  };
 
   return (
     <section className='home'>
@@ -65,7 +91,8 @@ const Home = () => {
       <CardList>
         {typeLinkListData.map((link, index) => (
           <TypeLink
-            totalCount={itemsCount[link.type]}
+            handleTypeLinkClick={handleTypeLinkClick}
+            isDisabled={isDisabled(link.type)}
             type={link.type}
             imgClass={link.class}
             title={link.title}

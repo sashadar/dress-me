@@ -6,6 +6,9 @@ const initialCurrentSetState = {
   shoes: {},
   key: null,
   currentType: '',
+  colorCheckboxes: [],
+  sizeCheckboxes: [],
+  filterStates: {},
 };
 
 const currentSetSlice = createSlice({
@@ -27,12 +30,38 @@ const currentSetSlice = createSlice({
     setCurrentType(state, action) {
       state.currentType = action.payload;
     },
+    resetCurrentType(state) {
+      state.currentType = '';
+    },
+
+    initializeFilters(state, action) {
+      action.payload.forEach((element) => {
+        state.filterStates[element] = true;
+      });
+    },
+    toggleFilters(state, action) {
+      state.filterStates[action.payload] = !state.filterStates[action.payload];
+    },
+
+    setSizeCheckBoxes(state, action) {
+      state.sizeCheckboxes = [...action.payload];
+    },
+    setColorCheckBoxes(state, action) {
+      state.colorCheckboxes = [...action.payload];
+    },
+    setFilter(state) {
+      state.isFiltered = true;
+    },
+
     reset(state) {
       state.shirt = {};
       state.pants = {};
       state.shoes = {};
       state.key = null;
       state.currentType = '';
+      state.filterStates = {};
+      state.colorCheckboxes = [];
+      state.sizeCheckboxes = [];
     },
   },
 });

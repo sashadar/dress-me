@@ -1,4 +1,3 @@
-import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
 
@@ -7,26 +6,13 @@ import CardImage from './CardImage';
 
 import './TypeLink.css';
 
-const TypeLink = ({ type, ...props }) => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const currentSet = useSelector((state) => state.currentSet);
-  const isDisabled =
-    currentSet.shirt.type === type ||
-    currentSet.pants.type === type ||
-    currentSet.shoes.type === type ||
-    currentSet.currentType === type ||
-    props.totalCount === 0;
-
-  console.log(`props.totalCount(${type}): ${props.totalCount}`);
-
+const TypeLink = (props) => {
   const handleTypeLinkClick = () => {
-    dispatch(currentSetActions.setCurrentType(type));
-    history.push('/items');
+    props.handleTypeLinkClick(props.type);
   };
 
   return (
-    <Card isDisabled={isDisabled}>
+    <Card isDisabled={props.isDisabled}>
       <div onClick={handleTypeLinkClick} className='type-link__link'>
         <CardImage className={props.imgClass}></CardImage>
         <p className='type-link__title'>{props.title}</p>
