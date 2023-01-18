@@ -27,6 +27,10 @@ const Items = () => {
     (state) => state.currentSet.colorCheckboxes
   );
 
+  React.useEffect(() => {
+    dispatch(currentSetActions.setCurrentPage('Items'));
+  }, []);
+
   const handleFilterMenuClick = () => {
     setIsFilterMenuVisible((prevValue) => !prevValue);
   };

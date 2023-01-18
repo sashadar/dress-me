@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
 import { useHistory } from 'react-router-dom';
@@ -21,7 +22,6 @@ const Home = () => {
   const currentSet = useSelector((state) => state.currentSet);
 
   const itemsCount = { shirt: 0, pants: 0, shoes: 0 };
-
   const savedSetsCount = savedSets.length;
 
   const isDisabled = (type) =>
@@ -44,6 +44,10 @@ const Home = () => {
       }
     );
   };
+
+  React.useEffect(() => {
+    dispatch(currentSetActions.setCurrentPage('Home'));
+  }, []);
 
   setItemCounters();
 

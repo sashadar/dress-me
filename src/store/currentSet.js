@@ -6,6 +6,7 @@ const initialCurrentSetState = {
   shoes: {},
   key: null,
   currentType: '',
+  currentPage: '',
   colorCheckboxes: [],
   sizeCheckboxes: [],
   filterStates: {},
@@ -33,7 +34,9 @@ const currentSetSlice = createSlice({
     resetCurrentType(state) {
       state.currentType = '';
     },
-
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    },
     initializeFilters(state, action) {
       action.payload.forEach((element) => {
         state.filterStates[element] = true;

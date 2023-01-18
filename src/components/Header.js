@@ -1,10 +1,15 @@
 import React from 'react';
+
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const currentPage = useSelector((state) => state.currentSet.currentPage);
+
   const handleMenuOpen = () => {
     setIsMenuOpen(true);
   };
@@ -21,7 +26,7 @@ const Header = () => {
           isMenuOpen ? 'header__page-title_left' : ''
         }`}
       >
-        Saved sets
+        {currentPage}
       </h1>
       <button
         className='header__menu-button header__menu-button_action_open'
