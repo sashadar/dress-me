@@ -42,7 +42,9 @@ const Items = () => {
     } else if (type === 'shirt') {
       dispatch(currentSetActions.addShirt(item));
     }
+
     dispatch(currentSetActions.resetCurrentType());
+
     history.push('/home');
   };
 

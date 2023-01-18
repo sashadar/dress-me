@@ -19,10 +19,7 @@ const Home = () => {
   const savedSets = useSelector((state) => state.savedSets);
   const allItems = useSelector((state) => state.allItems);
   const currentSet = useSelector((state) => state.currentSet);
-  console.log(currentSet.shirt.type);
-  console.log(currentSet.shirt);
 
-  console.log(currentSet.pants.type == 'undefined');
   const itemsCount = { shirt: 0, pants: 0, shoes: 0 };
 
   const savedSetsCount = savedSets.length;
