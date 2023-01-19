@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import './Header.css';
 
@@ -18,9 +18,9 @@ const Header = () => {
   };
   return (
     <header className='header'>
-      <NavLink className='header__title' to='/home'>
+      <Link className='header__title' to='/home'>
         DressMe
-      </NavLink>
+      </Link>
       <h1
         className={`header__page-title ${
           isMenuOpen ? 'header__page-title_left' : ''
