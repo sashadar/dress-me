@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
 import { savedSetsActions } from '../store/savedSets';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import TypeLink from '../components/TypeLink';
 import CardList from '../components/CardList';
@@ -74,9 +74,9 @@ const Home = () => {
   return (
     <section className='home'>
       <div className='home__summary'>
-        <a className='home__sets-count' href='/saved-sets'>
+        <Link className='home__sets-count' to='/saved-sets'>
           Sets: {savedSetsCount}
-        </a>
+        </Link>
         <ul className='home__items-count-list'>
           <li className='home__item-count'>
             <img

@@ -6,6 +6,10 @@
   display: flex;
   justify-content: space-between;
 }
+.home__sets-count {
+  font-weight: 600;
+  color: #142433;
+}
 
 .home__items-count-list {
   list-style-type: none;
