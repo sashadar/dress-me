@@ -1,7 +1,8 @@
 import './CardList.css';
 
 const CardList = (props) => {
-  return <ul className='card-list'>{props.children}</ul>;
+  const className = `card-list ${props.className ? props.className : ''}`;
+  return <ul className={className}>{props.children}</ul>;
 };
 
 export default CardList;

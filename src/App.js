@@ -7,6 +7,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Items from './pages/Items';
+import SavedSets from './pages/SavedSets';
 
 import * as api from './utils/api';
 
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path='/items'>
             <Items />
+          </Route>
+          <Route path='/saved-sets'>
+            <SavedSets />
           </Route>
         </Switch>
       </main>

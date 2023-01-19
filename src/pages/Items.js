@@ -16,8 +16,7 @@ const Items = () => {
   const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
   const currentSet = useSelector((state) => state.currentSet);
   const allItems = useSelector((state) => state.allItems);
-  //const savedSets = useSelector((state) => state.savedSets);
-  // const savedIds =
+
   const currentList = allItems
     .filter((item) => item.type === currentSet.currentType)
     .filter((item) => currentSet.filterStates[item.size])

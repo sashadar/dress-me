@@ -41,18 +41,6 @@ const Home = () => {
     itemsCount[element.type] += 1;
   });
 
-  /*   [currentSet.shirt, currentSet.pants, currentSet.shoes].forEach((element) => {
-    if (element.type) {
-      itemsCount[element.type] -= 1;
-    }
-  }); */
-
-  /*   savedSets.forEach((set) => {
-    itemsCount.shirt--;
-    itemsCount.pants--;
-    itemsCount.shoes--;
-  }); */
-
   React.useEffect(() => {
     if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
       const newSet = {

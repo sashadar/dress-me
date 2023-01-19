@@ -1,0 +1,45 @@
+.saved-sets {
+  padding: 0.5rem 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-sets__list {
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.saved-sets__set-title {
+  margin: 0;
+  font-weight: 600;
+  color: #142433;
+}
+
+.saved-sets__set-header {
+  display: inline-flex;
+}
+
+.saved-sets__delete-set-button {
+  font-family: 'Open Sans';
+  font-size: 0.8rem;
+  font-weight: 400;
+  display: inline-block;
+  color: #fff;
+  border-radius: 0.25em;
+  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.4);
+  background: #c0392b;
+  margin-left: auto;
+}
+
+.saved-sets__delete-set-button:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.saved-sets__items-list {
+  margin: 0.7rem 0 0.5rem;
+}
