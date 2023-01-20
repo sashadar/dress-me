@@ -26,21 +26,15 @@ function App() {
 
           let allItemIdsToRemove = [];
           savedSets.forEach((set) => {
-            console.log(set);
             const setItemIdsToRemove = Object.keys(set).reduce((ids, item) => {
-              console.log(set[item]);
-              console.log(typeof set[item]);
               if (typeof set[item] === 'object') {
-                console.log(set[item].id);
                 ids.push(set[item].id);
               }
               return ids;
             }, []);
-            console.log(setItemIdsToRemove);
             allItemIdsToRemove = [...allItemIdsToRemove, ...setItemIdsToRemove];
           });
           items = items.filter((item) => !allItemIdsToRemove.includes(item.id));
-          console.log(allItemIdsToRemove);
           dispatch(savedSetsActions.loadSets(savedSets));
         }
 
