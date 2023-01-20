@@ -1,13 +1,19 @@
-import { useSelector } from 'react-redux';
-import { savedSetsActions } from '../store/savedSets';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CardList from '../components/CardList';
 import Card from '../components/Card';
 import './SavedSets.css';
 import ItemCard from '../components/ItemCard';
+import { currentSetActions } from '../store/currentSet';
 
 const SavedSets = () => {
+  const dispatch = useDispatch();
   const savedSets = useSelector((state) => state.savedSets);
-  console.log(savedSets);
+
+  React.useEffect(() => {
+    dispatch(currentSetActions.setCurrentPage('Saved Sets'));
+    // eslint-disable-next-line
+  }, []);
 
   const handleItemCardClick = () => {};
 
