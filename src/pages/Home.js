@@ -43,16 +43,26 @@ const Home = () => {
 
   React.useEffect(() => {
     if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
+      let updatedSetList = [];
       const newSet = {
         shirt: currentSet.shirt,
         pants: currentSet.pants,
         shoes: currentSet.shoes,
         key: Math.random(),
       };
-      dispatch(currentSetActions.reset());
+
+      updatedSetList = [...savedSets, newSet];
       dispatch(savedSetsActions.add(newSet));
+      localStorage.setItem('savedSets', JSON.stringify(updatedSetList));
+      dispatch(currentSetActions.reset());
     }
-  }, [dispatch, currentSet.shoes, currentSet.pants, currentSet.shirt]);
+  }, [
+    dispatch,
+    currentSet.shoes,
+    currentSet.pants,
+    currentSet.shirt,
+    savedSets,
+  ]);
 
   const handleTypeLinkClick = (type) => {
     dispatch(currentSetActions.setCurrentType(type));

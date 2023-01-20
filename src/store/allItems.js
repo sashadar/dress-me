@@ -12,6 +12,7 @@ const allItemsSlice = createSlice({
     addItem(state, action) {
       state.push(action.payload);
     },
+
     removeItem(state, action) {
       state.splice(
         state.findIndex((item) => item.id === action.payload),
