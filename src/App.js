@@ -20,6 +20,8 @@ function App() {
   const history = useHistory();
 
   const allItems = useSelector((state) => state.allItems);
+  const currentSet = useSelector((state) => state.currentSet);
+  const savedSets = useSelector((state) => state.savedSets);
 
   const handleTypeChoose = (type) => {
     dispatch(currentSetActions.setCurrentType(type));
@@ -68,6 +70,32 @@ function App() {
       });
     // eslint-disable-next-line
   }, []);
+
+  React.useEffect(() => {
+    if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
+      let updatedSetList = [];
+      const newSet = {
+        shirt: currentSet.shirt,
+        pants: currentSet.pants,
+        shoes: currentSet.shoes,
+        key: Math.random(),
+      };
+
+      updatedSetList = [...savedSets, newSet];
+      dispatch(savedSetsActions.add(newSet));
+      localStorage.setItem('savedSets', JSON.stringify(updatedSetList));
+      dispatch(currentSetActions.reset());
+
+      history.push('/home');
+    }
+  }, [
+    dispatch,
+    currentSet.shoes,
+    currentSet.pants,
+    currentSet.shirt,
+    savedSets,
+    history,
+  ]);
 
   return (
     <div className='app'>

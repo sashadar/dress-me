@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { currentSetActions } from '../store/currentSet';
-import { savedSetsActions } from '../store/savedSets';
 import { Link } from 'react-router-dom';
+import { currentSetActions } from '../store/currentSet';
 
 import TypeLink from '../components/TypeLink';
 import CardList from '../components/CardList';
@@ -39,29 +38,6 @@ const Home = (props) => {
   allItems.forEach((element) => {
     itemsCount[element.type] += 1;
   });
-
-  React.useEffect(() => {
-    if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
-      let updatedSetList = [];
-      const newSet = {
-        shirt: currentSet.shirt,
-        pants: currentSet.pants,
-        shoes: currentSet.shoes,
-        key: Math.random(),
-      };
-
-      updatedSetList = [...savedSets, newSet];
-      dispatch(savedSetsActions.add(newSet));
-      localStorage.setItem('savedSets', JSON.stringify(updatedSetList));
-      dispatch(currentSetActions.reset());
-    }
-  }, [
-    dispatch,
-    currentSet.shoes,
-    currentSet.pants,
-    currentSet.shirt,
-    savedSets,
-  ]);
 
   return (
     <section className='home'>
