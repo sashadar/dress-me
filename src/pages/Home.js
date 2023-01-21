@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
 import { savedSetsActions } from '../store/savedSets';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import TypeLink from '../components/TypeLink';
 import CardList from '../components/CardList';
@@ -15,9 +15,8 @@ import { typeLinkListData } from '../utils/constants';
 
 import './Home.css';
 
-const Home = () => {
+const Home = (props) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const savedSets = useSelector((state) => state.savedSets);
   const allItems = useSelector((state) => state.allItems);
   const currentSet = useSelector((state) => state.currentSet);
@@ -64,23 +63,6 @@ const Home = () => {
     savedSets,
   ]);
 
-  const handleTypeLinkClick = (type) => {
-    dispatch(currentSetActions.setCurrentType(type));
-    const currentList = allItems.filter((item) => item.type === type);
-    const sizeCheckboxes = Array.from(
-      new Set(currentList.map((item) => item.size))
-    ).sort();
-    const colorCheckboxes = Array.from(
-      new Set(currentList.map((item) => item.color))
-    ).sort();
-    dispatch(currentSetActions.setSizeCheckBoxes(sizeCheckboxes));
-    dispatch(currentSetActions.initializeFilters(sizeCheckboxes));
-    dispatch(currentSetActions.setColorCheckBoxes(colorCheckboxes));
-    dispatch(currentSetActions.initializeFilters(colorCheckboxes));
-
-    history.push('/items');
-  };
-
   return (
     <section className='home'>
       <div className='home__summary'>
@@ -117,7 +99,7 @@ const Home = () => {
       <CardList>
         {typeLinkListData.map((link, index) => (
           <TypeLink
-            handleTypeLinkClick={handleTypeLinkClick}
+            handleTypeLinkClick={props.handleTypeChoose}
             isDisabled={isDisabled(link.type)}
             type={link.type}
             imgClass={link.class}

@@ -1,9 +1,10 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { allItemsActions } from './store/allItems';
 import { savedSetsActions } from './store/savedSets';
+import { currentSetActions } from './store/currentSet';
 
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -16,6 +17,28 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const allItems = useSelector((state) => state.allItems);
+
+  const handleTypeChoose = (type) => {
+    dispatch(currentSetActions.setCurrentType(type));
+    const currentList = allItems.filter((item) => item.type === type);
+    const sizeCheckboxes = Array.from(
+      new Set(currentList.map((item) => item.size))
+    ).sort();
+    const colorCheckboxes = Array.from(
+      new Set(currentList.map((item) => item.color))
+    ).sort();
+    dispatch(currentSetActions.setSizeCheckBoxes(sizeCheckboxes));
+    dispatch(currentSetActions.initializeFilters(sizeCheckboxes));
+    dispatch(currentSetActions.setColorCheckBoxes(colorCheckboxes));
+    dispatch(currentSetActions.initializeFilters(colorCheckboxes));
+
+    if (history.location.pathname === '/home') {
+      history.push('/items');
+    }
+  };
 
   React.useEffect(() => {
     api
@@ -54,11 +77,11 @@ function App() {
           <Route exact path='/'>
             <Redirect to='/home'></Redirect>
           </Route>
-          <Route path='/home/'>
-            <Home />
+          <Route path='/home'>
+            <Home handleTypeChoose={handleTypeChoose} />
           </Route>
           <Route path='/items'>
-            <Items />
+            <Items handleTypeChoose={handleTypeChoose} />
           </Route>
           <Route path='/saved-sets'>
             <SavedSets />

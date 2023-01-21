@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentSetActions } from '../store/currentSet';
 import { allItemsActions } from '../store/allItems';
@@ -10,9 +9,8 @@ import CardList from '../components/CardList';
 import ItemCard from '../components/ItemCard';
 import CheckBox from '../components/CheckBox';
 
-const Items = () => {
+const Items = (props) => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
 
@@ -77,7 +75,11 @@ const Items = () => {
     }
     dispatch(allItemsActions.removeItem(item.id));
 
-    history.push('/home');
+    const nextType = ['shirt', 'pants', 'shoes']
+      .filter((item) => item !== type)
+      .find((item) => !currentSet[item].id);
+
+    props.handleTypeChoose(nextType);
   };
 
   return (
