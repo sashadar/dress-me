@@ -52,9 +52,6 @@ const currentSetSlice = createSlice({
     setColorCheckBoxes(state, action) {
       state.colorCheckboxes = [...action.payload];
     },
-    /*     setFilter(state) {
-      state.isFiltered = true;
-    }, */
 
     reset(state) {
       state.shirt = {};
