@@ -13,14 +13,40 @@ import CheckBox from '../components/CheckBox';
 const Items = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
-  const currentSet = useSelector((state) => state.currentSet);
-  const allItems = useSelector((state) => state.allItems);
 
-  const currentList = allItems
-    .filter((item) => item.type === currentSet.currentType)
-    .filter((item) => currentSet.filterStates[item.size])
-    .filter((item) => currentSet.filterStates[item.color]);
+  const [isFilterMenuVisible, setIsFilterMenuVisible] = React.useState(false);
+
+  const allItems = useSelector((state) => state.allItems);
+  const currentSet = useSelector((state) => state.currentSet);
+  const filterStates = currentSet.filterStates;
+
+  let currentList = [];
+
+  const currentTypeItems = allItems.filter(
+    (item) => item.type === currentSet.currentType
+  );
+
+  const ifAnyColorChecked = currentSet.colorCheckboxes.reduce(
+    (acc, color) => acc || filterStates[color] === true,
+    false
+  );
+
+  const ifAnySizeChecked = currentSet.sizeCheckboxes.reduce(
+    (acc, size) => acc || filterStates[size] === true,
+    false
+  );
+
+  if (!ifAnyColorChecked && !ifAnySizeChecked) {
+    currentList = currentTypeItems;
+  } else if (ifAnyColorChecked && ifAnySizeChecked) {
+    currentList = currentTypeItems.filter(
+      (item) => filterStates[item.size] && filterStates[item.color]
+    );
+  } else {
+    currentList = currentTypeItems.filter(
+      (item) => filterStates[item.size] || filterStates[item.color]
+    );
+  }
 
   const uniqueSizeList = useSelector(
     (state) => state.currentSet.sizeCheckboxes

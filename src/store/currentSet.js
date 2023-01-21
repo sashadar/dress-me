@@ -39,7 +39,7 @@ const currentSetSlice = createSlice({
     },
     initializeFilters(state, action) {
       action.payload.forEach((element) => {
-        state.filterStates[element] = true;
+        state.filterStates[element] = false;
       });
     },
     toggleFilters(state, action) {
@@ -52,9 +52,9 @@ const currentSetSlice = createSlice({
     setColorCheckBoxes(state, action) {
       state.colorCheckboxes = [...action.payload];
     },
-    setFilter(state) {
+    /*     setFilter(state) {
       state.isFiltered = true;
-    },
+    }, */
 
     reset(state) {
       state.shirt = {};
