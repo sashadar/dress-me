@@ -12,6 +12,13 @@ const allItemsSlice = createSlice({
     addItem(state, action) {
       state.push(action.payload);
     },
+    addItemsFromSet(state, action) {
+      state.push(
+        action.payload['shirt'],
+        action.payload['pants'],
+        action.payload['shoes']
+      );
+    },
 
     removeItem(state, action) {
       state.splice(
