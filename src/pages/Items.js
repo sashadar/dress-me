@@ -16,12 +16,26 @@ const Items = (props) => {
 
   const allItems = useSelector((state) => state.allItems);
   const currentSet = useSelector((state) => state.currentSet);
+  const savedSets = useSelector((state) => state.savedSets);
   const filterStates = currentSet.filterStates;
+  const currentType = currentSet.currentType;
 
   let currentList = [];
+  let storedSameTypeBrands = [];
+
+  if (savedSets && currentType) {
+    storedSameTypeBrands = savedSets.map((set) => {
+      if (set[currentType] && set[currentType].brand) {
+        return set[currentType].brand;
+      }
+      return null;
+    });
+  }
 
   const currentTypeItems = allItems.filter(
-    (item) => item.type === currentSet.currentType
+    (item) =>
+      item.type === currentSet.currentType &&
+      !storedSameTypeBrands.includes(item.brand)
   );
 
   const ifAnyColorChecked = currentSet.colorCheckboxes.reduce(

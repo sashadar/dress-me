@@ -25,7 +25,19 @@ function App() {
 
   const handleTypeChoose = (type) => {
     dispatch(currentSetActions.setCurrentType(type));
-    const currentList = allItems.filter((item) => item.type === type);
+    let storedSameTypeBrands = [];
+
+    if (savedSets) {
+      storedSameTypeBrands = savedSets.map((set) => {
+        if (set[type] && set[type].brand) {
+          return set[type].brand;
+        }
+        return null;
+      });
+    }
+    const currentList = allItems.filter(
+      (item) => item.type === type && !storedSameTypeBrands.includes(item.brand)
+    );
     const sizeCheckboxes = Array.from(
       new Set(currentList.map((item) => item.size))
     ).sort();
