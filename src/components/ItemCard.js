@@ -8,7 +8,7 @@ const ItemCard = (props) => {
     props.handleItemCardClick(props.id, props.type);
   };
   return (
-    <Card>
+    <Card page={props.page}>
       <div className='item-card__wrapper' onClick={handleItemCardClick}>
         <CardImage
           className={`card-image__${props.type}`}

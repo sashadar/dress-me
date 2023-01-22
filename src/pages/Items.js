@@ -142,6 +142,7 @@ const Items = (props) => {
             key={item.id}
             id={item.id}
             handleItemCardClick={addItemToSet}
+            page='items'
           />
         ))}
       </CardList>

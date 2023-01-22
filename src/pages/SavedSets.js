@@ -59,6 +59,7 @@ const SavedSets = () => {
                   key={item.id}
                   id={item.id}
                   handleItemCardClick={handleItemCardClick}
+                  page='savedSets'
                 />
               ))}
             </CardList>
