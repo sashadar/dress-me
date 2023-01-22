@@ -1,6 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { currentSetActions } from '../store/currentSet';
-
 import Card from './Card';
 import CardImage from './CardImage';
 
