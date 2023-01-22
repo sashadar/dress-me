@@ -8,6 +8,7 @@
   margin: 1%;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .card:active {
@@ -21,4 +22,8 @@
 
 .card_inactive {
   pointer-events: none;
+}
+
+.card_inactive:active {
+  transform: none;
 }
