@@ -68,6 +68,7 @@ const Items = (props) => {
   );
 
   React.useEffect(() => {
+    document.title = 'DressMe | Items';
     dispatch(currentSetActions.setCurrentPage('Items'));
     // eslint-disable-next-line
   }, []);

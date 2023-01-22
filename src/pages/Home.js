@@ -31,6 +31,7 @@ const Home = (props) => {
     itemsCount[type] === 0;
 
   React.useEffect(() => {
+    document.title = 'DressMe | Home';
     dispatch(currentSetActions.setCurrentPage('Home'));
     // eslint-disable-next-line
   }, []);

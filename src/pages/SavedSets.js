@@ -13,6 +13,7 @@ const SavedSets = () => {
   const savedSets = useSelector((state) => state.savedSets);
 
   React.useEffect(() => {
+    document.title = 'DressMe | Saved Sets';
     dispatch(currentSetActions.setCurrentPage('Saved Sets'));
     // eslint-disable-next-line
   }, []);

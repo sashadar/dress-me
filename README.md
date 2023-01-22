@@ -1,74 +1,65 @@
-# dress-me
+# DressMe
 
-An application that helps the user build sets of clothing items, including shirts, pants and shoes from a database of clothing items that describes a user's wardrobe.
+## Preview: [Link to GitHub Pages][gitpages]
 
-## Getting Started with Create React App
+### Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Intro
+- Technologies
+- Features
+- General
+- Additional Info
+- Next Steps
 
-## Available Scripts
+**Intro**
 
-In the project directory, you can run:
+"DressMe" - an application that helps the user build sets of clothing items, including shirts, pants and shoes from a database of clothing items that describes a user's wardrobe.
 
-### `npm start`
+**Technologies**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js
+- Redux
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Features**
 
-### `npm test`
+- The project is a SPA bootstrapped with [Create React App][cra]
+- Page header is simple and includes an application name(which also used as link to home screen), screen/page name header and menu with navigation panel.
+- Navigation is performing using a navigation panel which opens by pressing a menu button. Implemented using NavLink components.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- On "Home" screen saved sets counter which, also acts as a link to the "Saved Sets" screen, its' value takes into account the saved set from the previous browsing sessions by pdating sets from the local storage. Also available shirts, pants and shoes counters available followed by 3 big Cards, by pressing on them we choose a type of clothing items we want to see and are redirecting' to the "Items" screen
 
-### `npm run build`
+- On "Items" screen we can find a list of available items with basic info about each one: brand, size and color. A picture is generic but it's border color is changing depending on items' color property. In order to choose a card just press on card itself. When pressed the current card is saved to current set and removed from the list of available items and another list of another item type appears on the screen. If you choose 3 items the saved sets list is updated with the new one and the current set is got reset.
+- Cards filtering: I use 2 filters. I used a filter menu of ksp.co.il website as an example. If all checkboxes are empty (unchecked) we can see all available items of the selected type, if one checkbox is checked we will see all possible variations for selected option: for example if color set to 'green' we wil get all green items of all sizes - [specific color] AND any of available sizes. If checkboxes of different filter groups are set - we get a stricted filtering - [1 or set of colors] AND [sizes set].
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Saved Sets are displaying as set of cards of set of cards (you can see in code that card lists an cards components are reused all over the project). By pressing on delete button the set is removed from the state variable as well as from the local storage and the counters and states are updated
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Note: the basic suggestion alghoritm will be implemented soon: 1. We take a range of sizes for each type of clothes and divide them by 4 (Reason: the shortest range is shirts sizes range: S, L, XL ,XXL.Optionally divide by Greatest Common Divisor to handle more complex problex with varying range - still didn't decide). In other word we create 4 buckets where we group the sizes of each type together. For example in bucket 4 we will put the biggest sizes of all types of item.
+A color suggestion will be more simpler: shirts and shoes will be adviced to wear of the same color while pants will be always suggested of different from shirt/shoes color first.
+The best suggestion in descending order: [suggested_size] AND [suggested_color], then [suggested_size] OR [any_other_color], then other sizes one by one where the priority is for suggested color first.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Additional Info**
 
-### `npm run eject`
+- Image files are compressed to use in Web.
+- For now the project is not responsive and currently it's adapted for mobile use only
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Next steps**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Few improvements are planned in the near future:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Responsive design.
+- Design Design Design.
+- Code refactoring: move reusable blocks of code to separate files.
+- Improve a next item suggestion logic.
+- Add footer
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Run on your local machine**
 
-## Learn More
+- (Reminder: [GitHub Pages][gitpages] available for the preview)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repo using a **_git clone [repo URL]_** command in CLI
+2. Inside the downloaded folder run: **_npm install_**
+3. Then run: **_npm run start_** for the dev version: open [http://localhost:3000][localhost] or **_npm run build_** for production version
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[gitpages]: https://sashadar.github.io/dress-me/
+[cra]: https://github.com/facebook/create-react-app
+[localhost]: http://localhost:3000
