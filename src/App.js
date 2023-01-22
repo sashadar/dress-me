@@ -115,7 +115,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path='/'>
-            <Redirect to='/home'></Redirect>
+            <Redirect to='/home/'></Redirect>
           </Route>
           <Route path='/home'>
             <Home handleTypeChoose={handleTypeChoose} />
