@@ -117,6 +117,9 @@ function App() {
           <Route exact path='/'>
             <Redirect to='/home/'></Redirect>
           </Route>
+          <Route exact path='/dress-me'>
+            <Redirect to='/home/'></Redirect>
+          </Route>
           <Route path='/home'>
             <Home handleTypeChoose={handleTypeChoose} />
           </Route>
