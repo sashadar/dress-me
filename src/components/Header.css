@@ -22,6 +22,7 @@
   font-size: 1.2rem;
   font-weight: 400;
   transition: 0.5s;
+  cursor: default;
 }
 
 .header__page-title_left {
@@ -38,6 +39,7 @@
   align-self: flex-start;
   margin: 1.3rem 0;
   color: white;
+  cursor: pointer;
 }
 
 .header__menu-button_action_close {

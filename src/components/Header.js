@@ -35,6 +35,8 @@ const Header = () => {
       ></button>
 
       <div
+        onBlur={handleMenuClose}
+        tabIndex='0'
         className={`header__navigation-menu ${
           isMenuOpen ? 'header__navigation-menu_visible' : ''
         }`}
