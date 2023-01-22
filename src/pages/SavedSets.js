@@ -21,7 +21,11 @@ const SavedSets = () => {
     const setKey = event.target.value;
     const setToDelete = savedSets.find((set) => set.key === Number(setKey));
     const updatedSets = JSON.parse(localStorage.getItem('savedSets'));
-    updatedSets.splice(updatedSets.findIndex((set) => set.key === setKey, 1));
+    console.log(updatedSets);
+    updatedSets.splice(
+      updatedSets.findIndex((set) => set.key === Number(setKey)),
+      1
+    );
     localStorage.setItem('savedSets', JSON.stringify(updatedSets));
     dispatch(allItemsActions.addItemsFromSet(setToDelete));
     dispatch(savedSetsActions.remove(setKey));

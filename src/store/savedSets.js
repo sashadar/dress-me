@@ -15,7 +15,7 @@ const savedSetsSlice = createSlice({
 
     remove(state, action) {
       state.splice(
-        state.findIndex((set) => set.key === action.payload),
+        state.findIndex((set) => set.key === Number(action.payload)),
         1
       );
     },
