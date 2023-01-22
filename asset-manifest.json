@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.5fde4513.css",
-    "main.js": "/static/js/main.5ca82756.js",
-    "static/js/787.7c06f424.chunk.js": "/static/js/787.7c06f424.chunk.js",
-    "static/media/shirt-image.png": "/static/media/shirt-image.287ec5bd98f0100a7f96.png",
-    "static/media/shoes-image.png": "/static/media/shoes-image.9e279e46b5db6cd5c047.png",
-    "static/media/pants-image.png": "/static/media/pants-image.09c3528bbcebad413190.png",
-    "index.html": "/index.html",
-    "static/media/button-hamburger-menu-icon.svg": "/static/media/button-hamburger-menu-icon.f0eb18bbadc24a7ab6a5.svg",
-    "main.5fde4513.css.map": "/static/css/main.5fde4513.css.map",
-    "main.5ca82756.js.map": "/static/js/main.5ca82756.js.map",
-    "787.7c06f424.chunk.js.map": "/static/js/787.7c06f424.chunk.js.map"
+    "main.css": "/sashadar/dress-me.git/static/css/main.7a108649.css",
+    "main.js": "/sashadar/dress-me.git/static/js/main.28b3a600.js",
+    "static/js/787.7c06f424.chunk.js": "/sashadar/dress-me.git/static/js/787.7c06f424.chunk.js",
+    "static/media/shirt-image.png": "/sashadar/dress-me.git/static/media/shirt-image.287ec5bd98f0100a7f96.png",
+    "static/media/shoes-image.png": "/sashadar/dress-me.git/static/media/shoes-image.9e279e46b5db6cd5c047.png",
+    "static/media/pants-image.png": "/sashadar/dress-me.git/static/media/pants-image.09c3528bbcebad413190.png",
+    "index.html": "/sashadar/dress-me.git/index.html",
+    "static/media/button-hamburger-menu-icon.svg": "/sashadar/dress-me.git/static/media/button-hamburger-menu-icon.f0eb18bbadc24a7ab6a5.svg",
+    "main.7a108649.css.map": "/sashadar/dress-me.git/static/css/main.7a108649.css.map",
+    "main.28b3a600.js.map": "/sashadar/dress-me.git/static/js/main.28b3a600.js.map",
+    "787.7c06f424.chunk.js.map": "/sashadar/dress-me.git/static/js/787.7c06f424.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fde4513.css",
-    "static/js/main.5ca82756.js"
+    "static/css/main.7a108649.css",
+    "static/js/main.28b3a600.js"
   ]
 }
