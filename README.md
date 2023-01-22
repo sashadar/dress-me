@@ -2,6 +2,9 @@
 
 ## Preview: [Link to GitHub Pages][gitpages]
 
+Note: Due to some technical issues related to gh-pages and React Router campatibility users can get a 404 error when they try to navigate to different parts of my application.
+For now by pressing a link above you will get to a blank page with header. Just press menu button and press Home to navigate to the starting page and then everything should work. The direct navigation to Home will cause a 404 error.
+
 ### Overview
 
 - Intro
