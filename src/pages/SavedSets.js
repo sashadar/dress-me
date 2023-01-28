@@ -40,12 +40,21 @@ const SavedSets = () => {
         {savedSets.map((set, index) => (
           <Card key={set.key}>
             <div className='saved-sets__set-header'>
-              <p className='saved-sets__duration'>
-                Time spent:{' '}
-                <span className='saved-sets__duration-value'>
-                  {set.timeSpent}
-                </span>
-              </p>
+              <div className='saved-sets__set-timetamp'>
+                <p className='saved-sets__set-timestamp-item'>
+                  Date created:{' '}
+                  <span className='saved-sets__set-timestamp-value'>
+                    {set.dateCreated}
+                  </span>
+                </p>
+                <p className='saved-sets__set-timestamp-item'>
+                  Time spent:{'   '}
+                  <span className='saved-sets__set-timestamp-value'>
+                    {set.timeSpent}
+                  </span>
+                </p>
+              </div>
+
               <p className='saved-sets__set-title'>Set {index + 1}</p>
               <button
                 value={set.key}

@@ -25,13 +25,13 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.saved-sets__duration {
+.saved-sets__set-timestamp-item {
   font-size: 0.7rem;
   font-weight: 600;
   margin: auto auto auto 0;
 }
 
-.saved-sets__duration-value {
+.saved-sets__set-timestamp-value {
   font-size: 0.6rem;
   margin: auto;
 }

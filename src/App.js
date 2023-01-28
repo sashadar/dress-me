@@ -90,17 +90,32 @@ function App() {
 
   React.useEffect(() => {
     if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
-      const currDate = new Date().getTime();
-      const dateDiffObj = new Date(currDate - currentSet.startTime);
-      const hours = dateDiffObj.getUTCHours();
-      const minutes = dateDiffObj.getUTCMinutes();
-      const seconds = dateDiffObj.getSeconds();
-      const timeDiffStr =
-        hours.toString().padStart(2, '0') +
-        ':' +
-        minutes.toString().padStart(2, '0') +
-        ':' +
-        seconds.toString().padStart(2, '0');
+      const currTimeObj = new Date();
+      const timeDiffObj = new Date(
+        currTimeObj.getTime() - currentSet.startTime
+      );
+      const generateTimeStr = (date) => {
+        const hours = date.getUTCHours();
+        const minutes = date.getUTCMinutes();
+        const seconds = date.getSeconds();
+
+        return (
+          hours.toString().padStart(2, '0') +
+          ':' +
+          minutes.toString().padStart(2, '0') +
+          ':' +
+          seconds.toString().padStart(2, '0')
+        );
+      };
+
+      const generateDateStr = (date) => {
+        return (
+          date.getFullYear() + '/' + date.getMonth() + 1 + '/' + date.getDate()
+        );
+      };
+
+      const timeDiffStr = generateTimeStr(timeDiffObj);
+      const dateStr = generateDateStr(currTimeObj);
 
       let updatedSetList = [];
       const newSet = {
@@ -108,6 +123,7 @@ function App() {
         pants: currentSet.pants,
         shoes: currentSet.shoes,
         key: Math.random(),
+        dateCreated: dateStr,
         timeSpent: timeDiffStr,
       };
 
