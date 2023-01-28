@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/dress-me/static/css/main.8dd61d3a.css",
-    "main.js": "/dress-me/static/js/main.819bad2a.js",
-    "static/js/787.7c06f424.chunk.js": "/dress-me/static/js/787.7c06f424.chunk.js",
-    "static/media/shirt-image.png": "/dress-me/static/media/shirt-image.287ec5bd98f0100a7f96.png",
-    "static/media/shoes-image.png": "/dress-me/static/media/shoes-image.9e279e46b5db6cd5c047.png",
-    "static/media/pants-image.png": "/dress-me/static/media/pants-image.09c3528bbcebad413190.png",
-    "index.html": "/dress-me/index.html",
-    "static/media/button-hamburger-menu-icon.svg": "/dress-me/static/media/button-hamburger-menu-icon.f0eb18bbadc24a7ab6a5.svg",
-    "main.8dd61d3a.css.map": "/dress-me/static/css/main.8dd61d3a.css.map",
-    "main.819bad2a.js.map": "/dress-me/static/js/main.819bad2a.js.map",
-    "787.7c06f424.chunk.js.map": "/dress-me/static/js/787.7c06f424.chunk.js.map"
+    "main.css": "/dress-me/home/static/css/main.a87787d4.css",
+    "main.js": "/dress-me/home/static/js/main.a591b78c.js",
+    "static/js/787.7c06f424.chunk.js": "/dress-me/home/static/js/787.7c06f424.chunk.js",
+    "static/media/shirt-image.png": "/dress-me/home/static/media/shirt-image.287ec5bd98f0100a7f96.png",
+    "static/media/shoes-image.png": "/dress-me/home/static/media/shoes-image.9e279e46b5db6cd5c047.png",
+    "static/media/pants-image.png": "/dress-me/home/static/media/pants-image.09c3528bbcebad413190.png",
+    "index.html": "/dress-me/home/index.html",
+    "static/media/button-hamburger-menu-icon.svg": "/dress-me/home/static/media/button-hamburger-menu-icon.f0eb18bbadc24a7ab6a5.svg",
+    "main.a87787d4.css.map": "/dress-me/home/static/css/main.a87787d4.css.map",
+    "main.a591b78c.js.map": "/dress-me/home/static/js/main.a591b78c.js.map",
+    "787.7c06f424.chunk.js.map": "/dress-me/home/static/js/787.7c06f424.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8dd61d3a.css",
-    "static/js/main.819bad2a.js"
+    "static/css/main.a87787d4.css",
+    "static/js/main.a591b78c.js"
   ]
 }
