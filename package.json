@@ -30,7 +30,7 @@
     "type": "git",
     "url": "git+https://github.com/sashadar/dress-me.git"
   },
-  "homepage": "https://sashadar.github.io/dress-me/home",
+  "homepage": "https://sashadar.github.io/dress-me",
   "browserslist": {
     "production": [
       ">0.2%",
