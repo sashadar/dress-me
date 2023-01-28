@@ -49,12 +49,16 @@ function App() {
     const colorCheckboxes = Array.from(
       new Set(currentList.map((item) => item.color))
     ).sort();
+
     dispatch(currentSetActions.setSizeCheckBoxes(sizeCheckboxes));
     dispatch(currentSetActions.initializeFilters(sizeCheckboxes));
     dispatch(currentSetActions.setColorCheckBoxes(colorCheckboxes));
     dispatch(currentSetActions.initializeFilters(colorCheckboxes));
 
-    if (history.location.pathname === '/home') {
+    if (
+      history.location.pathname === '/home' ||
+      history.location.pathname === '/home/'
+    ) {
       history.push('/items');
     }
   };
@@ -149,11 +153,8 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <Route exact path='/'>
-            <Redirect to='/home/'></Redirect>
-          </Route>
           <Route exact path='/dress-me'>
-            <Redirect to='/home/'></Redirect>
+            <Redirect to='/home'></Redirect>
           </Route>
           <Route path='/home'>
             <Home handleTypeChoose={handleTypeChoose} />
@@ -163,6 +164,9 @@ function App() {
           </Route>
           <Route path='/saved-sets'>
             <SavedSets />
+          </Route>
+          <Route path='/'>
+            <Redirect to='/home'></Redirect>
           </Route>
         </Switch>
       </main>
