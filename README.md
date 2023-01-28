@@ -10,9 +10,9 @@ For now by pressing a link above you will get to a blank page with header. Just 
 - Intro
 - Technologies
 - Features
-- General
 - Additional Info
 - Next Steps
+- Run on your local machine
 
 **Intro**
 
@@ -53,7 +53,6 @@ Few improvements are planned in the near future:
 - Design Design Design.
 - Code refactoring: move reusable blocks of code to separate files.
 - Improve a next item suggestion logic.
-- Add footer
 
 **Run on your local machine**
 
