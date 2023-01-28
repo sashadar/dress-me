@@ -76,7 +76,6 @@ const Items = (props) => {
   const handleFilterMenuClick = () => {
     setIsFilterMenuVisible((prevValue) => !prevValue);
   };
-  //debugger;
 
   const addItemToSet = (id, type) => {
     const item = currentList.find((item) => item.id === id);
