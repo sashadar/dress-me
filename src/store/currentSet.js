@@ -5,6 +5,7 @@ const initialCurrentSetState = {
   pants: {},
   shoes: {},
   key: null,
+  startTime: 0,
   currentType: '',
   currentPage: '',
   colorCheckboxes: [],
@@ -27,6 +28,9 @@ const currentSetSlice = createSlice({
     },
     addKey(state, action) {
       state.key = action.payload;
+    },
+    setStartTime(state, action) {
+      state.startTime = action.payload;
     },
     setCurrentType(state, action) {
       state.currentType = action.payload;
@@ -58,6 +62,7 @@ const currentSetSlice = createSlice({
       state.pants = {};
       state.shoes = {};
       state.key = null;
+      state.startTime = 0;
       state.currentType = '';
       state.filterStates = {};
       state.colorCheckboxes = [];

@@ -28,6 +28,10 @@ function App() {
     dispatch(currentSetActions.setCurrentType(type));
     let storedSameTypeBrands = [];
 
+    if (currentSet.startTime === 0) {
+      dispatch(currentSetActions.setStartTime(new Date().getTime()));
+    }
+
     if (savedSets) {
       storedSameTypeBrands = savedSets.map((set) => {
         if (set[type] && set[type].brand) {
@@ -86,12 +90,25 @@ function App() {
 
   React.useEffect(() => {
     if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
+      const currDate = new Date().getTime();
+      const dateDiffObj = new Date(currDate - currentSet.startTime);
+      const hours = dateDiffObj.getUTCHours();
+      const minutes = dateDiffObj.getUTCMinutes();
+      const seconds = dateDiffObj.getSeconds();
+      const timeDiffStr =
+        hours.toString().padStart(2, '0') +
+        ':' +
+        minutes.toString().padStart(2, '0') +
+        ':' +
+        seconds.toString().padStart(2, '0');
+
       let updatedSetList = [];
       const newSet = {
         shirt: currentSet.shirt,
         pants: currentSet.pants,
         shoes: currentSet.shoes,
         key: Math.random(),
+        timeSpent: timeDiffStr,
       };
 
       updatedSetList = [...savedSets, newSet];
@@ -106,6 +123,7 @@ function App() {
     currentSet.shoes,
     currentSet.pants,
     currentSet.shirt,
+    currentSet.startTime,
     savedSets,
     history,
   ]);
