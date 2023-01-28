@@ -1,0 +1,14 @@
+.footer {
+  background-color: #142433;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__copyright {
+  text-align: center;
+  color: #bccddc;
+  font-size: 0.8rem;
+  font-weight: 200;
+}

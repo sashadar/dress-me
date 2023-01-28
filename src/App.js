@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Items from './pages/Items';
 import SavedSets from './pages/SavedSets';
+import Footer from './components/Footer';
 
 import * as api from './utils/api';
 
@@ -131,6 +132,7 @@ function App() {
           </Route>
         </Switch>
       </main>
+      <Footer />
     </div>
   );
 }
