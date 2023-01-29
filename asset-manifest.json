@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dress-me/static/css/main.8dd61d3a.css",
-    "main.js": "/dress-me/static/js/main.f9cd322d.js",
+    "main.js": "/dress-me/static/js/main.f4e4c866.js",
     "static/js/787.7c06f424.chunk.js": "/dress-me/static/js/787.7c06f424.chunk.js",
     "static/media/shirt-image.png": "/dress-me/static/media/shirt-image.287ec5bd98f0100a7f96.png",
     "static/media/shoes-image.png": "/dress-me/static/media/shoes-image.9e279e46b5db6cd5c047.png",
@@ -9,11 +9,11 @@
     "index.html": "/dress-me/index.html",
     "static/media/button-hamburger-menu-icon.svg": "/dress-me/static/media/button-hamburger-menu-icon.f0eb18bbadc24a7ab6a5.svg",
     "main.8dd61d3a.css.map": "/dress-me/static/css/main.8dd61d3a.css.map",
-    "main.f9cd322d.js.map": "/dress-me/static/js/main.f9cd322d.js.map",
+    "main.f4e4c866.js.map": "/dress-me/static/js/main.f4e4c866.js.map",
     "787.7c06f424.chunk.js.map": "/dress-me/static/js/787.7c06f424.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8dd61d3a.css",
-    "static/js/main.f9cd322d.js"
+    "static/js/main.f4e4c866.js"
   ]
 }
