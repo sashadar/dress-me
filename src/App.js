@@ -26,23 +26,26 @@ function App() {
 
   const handleTypeChoose = (type) => {
     dispatch(currentSetActions.setCurrentType(type));
-    let storedSameTypeBrands = [];
+    //let storedSameTypeBrands = [];
 
     if (currentSet.startTime === 0) {
       dispatch(currentSetActions.setStartTime(new Date().getTime()));
     }
 
-    if (savedSets) {
+    /*     if (savedSets) {
       storedSameTypeBrands = savedSets.map((set) => {
         if (set[type] && set[type].brand) {
           return set[type].brand;
         }
         return null;
       });
-    }
-    const currentList = allItems.filter(
+    } */
+    /*     const currentList = allItems.filter(
       (item) => item.type === type && !storedSameTypeBrands.includes(item.brand)
-    );
+    ); */
+
+    const currentList = allItems.filter((item) => item.type === type);
+
     const sizeCheckboxes = Array.from(
       new Set(currentList.map((item) => item.size))
     ).sort();
