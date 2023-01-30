@@ -24,25 +24,19 @@ function App() {
   const currentSet = useSelector((state) => state.currentSet);
   const savedSets = useSelector((state) => state.savedSets);
 
+  const {
+    shirt: currentSetShirt,
+    pants: currentSetPants,
+    shoes: currentSetShoes,
+    startTime: currentSetStartTime,
+  } = currentSet;
+
   const handleTypeChoose = (type) => {
     dispatch(currentSetActions.setCurrentType(type));
-    //let storedSameTypeBrands = [];
 
     if (currentSet.startTime === 0) {
       dispatch(currentSetActions.setStartTime(new Date().getTime()));
     }
-
-    /*     if (savedSets) {
-      storedSameTypeBrands = savedSets.map((set) => {
-        if (set[type] && set[type].brand) {
-          return set[type].brand;
-        }
-        return null;
-      });
-    } */
-    /*     const currentList = allItems.filter(
-      (item) => item.type === type && !storedSameTypeBrands.includes(item.brand)
-    ); */
 
     const currentList = allItems.filter((item) => item.type === type);
 
@@ -95,12 +89,12 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
+  //
+
   React.useEffect(() => {
-    if (currentSet.shoes.id && currentSet.pants.id && currentSet.shirt.id) {
+    if (currentSetShoes.id && currentSetPants.id && currentSetShirt.id) {
       const currTimeObj = new Date();
-      const timeDiffObj = new Date(
-        currTimeObj.getTime() - currentSet.startTime
-      );
+      const timeDiffObj = new Date(currTimeObj.getTime() - currentSetStartTime);
       const generateTimeStr = (date) => {
         const hours = date.getUTCHours();
         const minutes = date.getUTCMinutes();
@@ -126,9 +120,9 @@ function App() {
 
       let updatedSetList = [];
       const newSet = {
-        shirt: currentSet.shirt,
-        pants: currentSet.pants,
-        shoes: currentSet.shoes,
+        shirt: currentSetShirt,
+        pants: currentSetPants,
+        shoes: currentSetShoes,
         key: Math.random(),
         dateCreated: dateStr,
         timeSpent: timeDiffStr,
@@ -143,10 +137,10 @@ function App() {
     }
   }, [
     dispatch,
-    currentSet.shoes,
-    currentSet.pants,
-    currentSet.shirt,
-    currentSet.startTime,
+    currentSetShoes,
+    currentSetPants,
+    currentSetShirt,
+    currentSetStartTime,
     savedSets,
     history,
   ]);

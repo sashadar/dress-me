@@ -18,7 +18,7 @@ const Items = (props) => {
   const currentSet = useSelector((state) => state.currentSet);
   //const savedSets = useSelector((state) => state.savedSets);
   const filterStates = currentSet.filterStates;
-  //const currentType = currentSet.currentType;
+  const currentType = currentSet.currentType;
 
   let currentList = [];
   //let storedSameTypeBrands = [];
@@ -38,9 +38,7 @@ const Items = (props) => {
       !storedSameTypeBrands.includes(item.brand)
   ); */
 
-  const currentTypeItems = allItems.filter(
-    (item) => item.type === currentSet.currentType
-  );
+  const currentTypeItems = allItems.filter((item) => item.type === currentType);
 
   const ifAnyColorChecked = currentSet.colorCheckboxes.reduce(
     (acc, color) => acc || filterStates[color] === true,
@@ -62,6 +60,17 @@ const Items = (props) => {
     currentList = currentTypeItems.filter(
       (item) => filterStates[item.size] || filterStates[item.color]
     );
+  }
+
+  //arrange list by color
+  if (currentSet.shirt && currentType === 'pants') {
+    currentList
+      .sort((a, b) => a.color - b.color)
+      .sort((a, b) => {
+        if (a.color === currentSet.color && b.color !== currentSet.color) {
+          return;
+        }
+      });
   }
 
   const uniqueSizeList = useSelector(
